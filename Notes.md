@@ -31,6 +31,10 @@ $a$ represents $\tau$ and $b$ represents $s$. Instead of the integral, the sum i
 
 For computation, the signal is passed into low pass and high pass signals.
 
+## Transposed Convolution
+
+Transposed convolution is a way to reverse the downsampling effect of a regular convolution. It increases the spatial dimensions of the input. This is achieved by inserting zeros between elements of the input feature map before applying the convolution operation. The size of the output feature map depends on several factors, including the stride, padding, kernel size, and input dimensions. 
+
 ## Alternate Approaches
 
 Super Resolution is an ill-posed problem. This is because, a unique solution may not exist and a small change in the input may result in a large change in the output. Traditionally CNNs or transformers were used. Transformers typically outperform CNNs but are computationally expensive. CNNs have inductive priors including locality, translation invariance and heirarchy. This makes CNNs able to learn from small datasets but they fail to capture long range dependencies.
@@ -38,7 +42,7 @@ Super Resolution is an ill-posed problem. This is because, a unique solution may
 ### WaveMixSR
 
 <div style="text-align: center;">
-  <img src="image.png" alt="Architecture of the model">
+  <img src="architecture.png" alt="Architecture of the model">
 </div>
 <br>
 
@@ -58,3 +62,5 @@ Super Resolution is an ill-posed problem. This is because, a unique solution may
 7. The 3 channels are concatenated and sent converted to RGB.
 
 ### WaveMix Block
+
+The wavemix block uses a single level of 2D discrete wavelet transform. CNNs use pooling, however wavemix blocks don;t and hence have greater spatial resolution. Each wavemix block contains 4 wavelet filters as $w_{aa}, w_{ad}, w_{da}, w_{dd}$ where $a$ represents approximation and $d$ represents detail. These are concatenated and sent to a Multi Layer Perceptron. Afterwards, the output is sent to a transposed convolutional layer and then batch nom is applied. The output is added to the input of the block.
