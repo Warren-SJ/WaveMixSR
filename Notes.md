@@ -29,4 +29,24 @@ $$ D(a,b) = \frac{1}{\sqrt{b}}\sum_{n} f[t_m]\psi[\frac{t_m-a}{b}] $$
 
 $a$ represents $\tau$ and $b$ represents $s$. Instead of the integral, the sum is used. $a$ and $b$ are dyadic.
 
-For computation, the signal is passed into low pass and high pass signals. 
+For computation, the signal is passed into low pass and high pass signals.
+
+## Alternate Approaches
+
+Super Resolution is an ill-posed problem. This is because, a unique solution may not exist and a small change in the input may result in a large change in the output. Traditionally CNNs or transformers were used. Transformers typically outperform CNNs but are computationally expensive. CNNs have inductive priors including locality, translation invariance and heirarchy. This makes CNNs able to learn from small datasets but they fail to capture long range dependencies.
+
+### WaveMixSR
+
+1. The input image is converted to YCbCr color space. The Y channel represents luminance information while the Cb and Cr channels represent the chrominance information where Cb represents the difference between the blue component and a reference value derived from the luminance and Cr represents the difference between the red component and a reference value derived from the luminance. Y channel is used for parametric learning as it contains most of the details and is less affected by colour changes.
+
+2. Y-channel is sent through a parameter free upsampling layer which upsamples the image based on bilinear or bicubic interpolation.
+
+3. The output of the upsampler is sent to a convolutional layer to increase the number of feature maps.
+
+4.  The output from the convolutional layer is sent to 4 WaveMix blocks connected in series.
+
+5. The output i sent to a convolutional layer to reduce the number of feature maps.
+
+6. The Cb and Cr channels are upsampled seperately using bilinear or bicubic interpolation.
+
+7. The 3 channels are concatenated and sent converted to RGB.
