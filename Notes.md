@@ -37,6 +37,12 @@ Super Resolution is an ill-posed problem. This is because, a unique solution may
 
 ### WaveMixSR
 
+<div style="text-align: center;">
+  <img src="image.png" alt="Architecture of the model">
+</div>
+<br>
+
+
 1. The input image is converted to YCbCr color space. The Y channel represents luminance information while the Cb and Cr channels represent the chrominance information where Cb represents the difference between the blue component and a reference value derived from the luminance and Cr represents the difference between the red component and a reference value derived from the luminance. Y channel is used for parametric learning as it contains most of the details and is less affected by colour changes.
 
 2. Y-channel is sent through a parameter free upsampling layer which upsamples the image based on bilinear or bicubic interpolation.
@@ -50,3 +56,5 @@ Super Resolution is an ill-posed problem. This is because, a unique solution may
 6. The Cb and Cr channels are upsampled seperately using bilinear or bicubic interpolation.
 
 7. The 3 channels are concatenated and sent converted to RGB.
+
+### WaveMix Block
