@@ -19,6 +19,7 @@ $$ F(\tau,s) = \frac{1}{\sqrt{\lvert s \rvert}}\int_{-\infty}^{\infty} f(t)\psi^
 $s$ is the scale parameter which is $\frac{1}{frequency}$. $\psi$ is known as the wavelet. The wavelet acts as a basis function. Previously in the Fourier transfrom, the basis funtions were complexexponentials. The width and central frequency of the wavelet can be changed. An expanded wavelet (large $s$) is suitable for low frequencies with good frequency resolution but bad time resolution and a compressed wavelet (small $s$) is suitable for high frequencies with good time resolution but bad frequency resolution.
 
 $$ \psi_{s,\tau}(t) = \frac{1}{\sqrt{\lvert s \rvert}}\psi(\frac{t-\tau}{s}) $$
+
 where $\psi$ is the mother wavelet. 
 
 This transform results in a 3D plot of the transform with parameters $s$, $\tau$ and $F(\tau,s)$. This is obtained by plotting for different values of $s$ and $\tau$.
