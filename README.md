@@ -10,7 +10,7 @@ Traditionally super resolution is based on transformers which are computationall
 
 Wavelet transform is a mathematical tool that decomposes a signal into different frequency components. The Fourier transform decomposes a signal into its frequency components. However, the Fourier transform does not provide information about the time at which the frequency components occur. Therefore the Fourier transform in suitabe for stationary signals. One possible solution is to use the short-time Fourier transform which provides information about the time at which the frequency components occur. Choosing the window has compromises. A small window results in a high frequency resolution but a low time resolution. A large window results in a high time resolution but a low frequency resolution.
 
-Thw wavelet transform improves on the short-time Fourier transform by using a variable window size. The wavelet transform uses a window that is small at high frequencies and large at low frequencies. This results in a high frequency resolution and a high time resolution. Therefore it is called a multi-resolution analysis.
+The wavelet transform improves on the short-time Fourier transform by using a variable window size. The wavelet transform uses a window that is small at high frequencies and large at low frequencies. This results in a high frequency resolution and a high time resolution. Therefore it is called a multi-resolution analysis.
 
 The continuous wavelet transform is defined as:
 
