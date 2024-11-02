@@ -1,5 +1,9 @@
 torch
 torchvision
-matplotlib
 numpy
-torchsr
+Pillow
+opencv-python
+kornia
+matplotlib
+wavemix
+# To install the CUDA version of PyTorch, visit https://pytorch.org/get-started/locally/

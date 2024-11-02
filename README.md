@@ -65,3 +65,25 @@ Super Resolution is an ill-posed problem. This is because, a unique solution may
 ### WaveMix Block
 
 The wavemix block uses a single level of 2D discrete wavelet transform. CNNs use pooling, however wavemix blocks don;t and hence have greater spatial resolution. Each wavemix block contains 4 wavelet filters as $w_{aa}, w_{ad}, w_{da}, w_{dd}$ where $a$ represents approximation and $d$ represents detail. These are concatenated and sent to a Multi Layer Perceptron. Afterwards, the output is sent to a transposed convolutional layer and then batch nom is applied. The output is added to the input of the block.
+
+## Usage
+
+1. Clone the repository by running the following command:
+
+```bash
+git clone https://github.com/Warren-SJ/WaveMixSR
+```
+
+2. Install the required dependencies by running the following command in the root directory of the repository:
+
+```bash
+pip install -r requirements.txt
+```
+
+**Note**: If you are using a CUDA -enabled GPU, you may install the CUDA version of Pytorch. In that case, remove the `torch` and `torchvision` packages from the `requirements.txt` file and install the CUDA version of Pytorch as specified [official website](https://pytorch.org/get-started/locally/).
+
+3. Create a folder  named `data` in the root directory of the repository and a subfolder named `lowres_images` in the `data` folder. Place the low resolution images in the `lowres_images` folder.
+
+4. Inference is done in the `inference.ipynb` notebook.
+
+5. For video inference,  you can use the `video_inference.ipynb` notebook.
