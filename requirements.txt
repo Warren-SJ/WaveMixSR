@@ -6,4 +6,5 @@ opencv-python
 kornia
 matplotlib
 wavemix
+gradio
 # To install the CUDA version of PyTorch, visit https://pytorch.org/get-started/locally/
