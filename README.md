@@ -82,13 +82,13 @@ pip install -r requirements.txt
 
 **Note**: If you are using a CUDA -enabled GPU, you may install the CUDA version of Pytorch. In that case, remove the `torch` and `torchvision` packages from the `requirements.txt` file and install the CUDA version of Pytorch as specified [official website](https://pytorch.org/get-started/locally/).
 
-3. Inference can be done in one of  two ways:
+3. Inference can be done in one of three ways:
 
-- **Using ```app.py``` script**: Run the python script. This can be used to upload images to the model and download the super-resolved images.
-
+- **Using ```app.py``` script**: Run the python script. This opens up a gradio demo which can be used to upload images to the model and download the super-resolved images.
 
 - **Using ```inference.ipynb``` notebook**: Open the notebook and run the cells to super-resolve the images. This can be used to convert a folder to high resolution images.
 
+- **Hugging Face Space**: You may use the Hugging Face space for this model [here](https://huggingface.co/spaces/Warren-SJ/WaveMixSR)
 
 3. Create a folder  named `data` in the root directory of the repository and a subfolder named `lowres_images` in the `data` folder. Place the low resolution images in the `lowres_images` folder.
 
